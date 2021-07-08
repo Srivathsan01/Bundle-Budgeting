@@ -1,15 +1,35 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Navbar,Nav} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
+import loadable from "@loadable/component";
 
-import UsersList from './components/users-list.component'
-import CreateUser from './components/create-user.component'
-import Login from './components/login'
-import CustomerShop from './components/customer-shop'
-import VendorShop from './components/vendor-shop'
-import NewProduct from './components/create-new-product'
-import Results from './components/displayresults'
+const UsersList = loadable(() => import('./components/users-list.component'), {
+  fallback: <div />
+});
+
+const CreateUser = loadable(() => import('./components/create-user.component'), {
+  fallback: <div />
+});
+
+const Login = loadable(() => import('./components/login'), {
+  fallback: <div />
+});
+
+const CustomerShop = loadable(() => import('./components/customer-shop'), {
+  fallback: <div />
+});
+
+const VendorShop = loadable(() => import('./components/vendor-shop'), {
+  fallback: <div />
+});
+
+const NewProduct = loadable(() => import('./components/create-new-product'), {
+  fallback: <div />
+});
+
+const Results = loadable(() => import('./components/displayresults'), {
+  fallback: <div />
+});
 
 function App() {
   return (
