@@ -2,6 +2,7 @@ import React from 'react';
 import { Suspense } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
+import CounterPage from './components/CounterPage';
 
 const UsersList = React.lazy(() => import(/* webpackChunkName: "users-list.component" */ './components/users-list.component'));
 const CreateUser = React.lazy(() => import(/* webpackChunkName: "create-user.component" */ './components/create-user.component'));
@@ -11,6 +12,7 @@ const VendorShop = React.lazy(() => import(/* webpackChunkName: "vendor-shop" */
 const NewProduct = React.lazy(() => import(/* webpackChunkName: "create-new-product" */ './components/create-new-product'));
 const Results = React.lazy(() => import(/* webpackChunkName: "displayresults" */ './components/displayresults'));
 const Game = React.lazy(() => import(/* webpackChunkName: "Game" */ './components/Game'));
+const Counter = React.lazy(() => import(/* webpackChunkName: "CounterPage" */ './components/CounterPage'));
 
 function App() {
   return (
@@ -33,6 +35,9 @@ function App() {
                 <li className="navbar-item">
                   <Link to="/game" className="nav-link">Game</Link>
                 </li>
+                <li className="navbar-item">
+                  <Link to="/Counter" className="nav-link">Counter</Link>
+                </li>
               </ul>
             </div>
           </nav>
@@ -46,6 +51,7 @@ function App() {
           <Route path="/createproduct" component={NewProduct} />
           <Route path="/results" component={Results} />
           <Route path="/game" component={Game} />
+          <Route path="/Counter" component={CounterPage} />
         </div>
       </Suspense>
     </Router>
